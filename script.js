@@ -64,13 +64,16 @@ var days = document.getElementById("days");
 var hours = document.getElementById("hours");
 var minutes = document.getElementById("minutes");
 var seconds = document.getElementById("seconds");
-var target = new Date(2020, 02, 08, 00, 00, 00, 00).getTime();
+var target = new Date(2020, 02, 06, 21, 30, 00, 00).getTime();
 setInterval(() => {
   var d = new Date().getTime();
   var diff = target - d;
   if (diff < 0) {
     document.getElementById("closed-text").style.display = "block";
+    document.getElementById("bottom-closed-text").style.display = "block";
     document.getElementById("countdown").style.display = "none";
+    document.getElementById("top-register-button").style.display="none";
+    document.getElementById("register-button").style.display="none";
   } else {
     var day = Math.floor(diff / (1000 * 60 * 60 * 24));
     diff -= day * 24 * 60 * 60 * 1000;
